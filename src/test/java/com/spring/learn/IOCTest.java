@@ -1,5 +1,6 @@
 package com.spring.learn;
 
+import com.spring.learn.bean.Blue;
 import com.spring.learn.bean.Person;
 import com.spring.learn.config.AppConfig;
 import com.spring.learn.config.AppConfig2;
@@ -12,6 +13,21 @@ import java.util.Map;
 public class IOCTest {
 
     AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig2.class);
+
+
+    @Test
+    public void testImport() {
+        printBeans(context);
+        Blue bean = context.getBean(Blue.class);
+
+    }
+
+    private void printBeans(AnnotationConfigApplicationContext annotationConfigApplicationContext){
+        String[] beanDefinitionNames = annotationConfigApplicationContext.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println(beanDefinitionName);
+        }
+    }
 
     @Test
     public void test03() {
