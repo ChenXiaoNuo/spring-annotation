@@ -1,6 +1,7 @@
 package com.spring.learn.config;
 
 import com.spring.learn.bean.Color;
+import com.spring.learn.bean.ColorFactoryBean;
 import com.spring.learn.bean.Person;
 import com.spring.learn.bean.Red;
 import com.spring.learn.condition.LinusCondition;
@@ -57,6 +58,14 @@ public class AppConfig2 {
      *      a. @Import(要导入到容器中的组件)：容器中就会自动注册这个组件，id默认时全限定类名
      *      b. ImportSelector:返回需要导入的组件的全限定类名数组
      *      c. ImportBeanDefinitionRegistrar
+     *  4. 使用Spring提供的FactoryBean（工厂Bean）
+     *      a. 默认获取到的是工厂bean调用getObject创建的对象
+     *      b. 要获取工厂bean本身，需要给id前面加一个&符号---eg：&colorFactoryBean
      */
+    @Bean
+    public ColorFactoryBean colorFactoryBean(){
+        return new ColorFactoryBean();
+    }
+
 
 }
