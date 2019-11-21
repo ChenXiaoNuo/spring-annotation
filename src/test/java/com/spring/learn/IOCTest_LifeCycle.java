@@ -9,8 +9,6 @@ public class IOCTest_LifeCycle {
 
     AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfigOfLifeCycle.class);
 
-
-
     @Test
     public void test01(){
         System.out.println("容器创建完成");
